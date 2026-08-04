@@ -12,6 +12,7 @@ My SQL practice solutions from HackerRank, covering Basic Select, Aggregation, a
 ## 🛠️ Topics Practiced
 
 - Basic SELECT queries
+- order by, group by
 - Filtering with WHERE, LIKE, NOT LIKE
 - Aggregate functions (SUM, AVG, COUNT, MIN, MAX)
 - String functions (SUBSTR, LENGTH)
