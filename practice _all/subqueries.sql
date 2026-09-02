@@ -101,3 +101,63 @@ from employees ep
 where ep.employee_id = e.manager_id
 );
 
+-- 11.find the second highest salary in the employees table
+select max(salary) as second_highest
+from employees
+where salary <
+(select max(salary)
+from employees
+);
+
+-- 12.Find employees who earn more then the average salary of their department
+select * 
+from employees 
+where salary >
+(select round(avg(salary),2)
+from employees
+);
+
+-- 13. department average greater than company's average
+select department
+from employees
+group by department
+having avg(salary) >
+(select avg(salary)
+from employees
+);
+
+-- 14.employee with the third highest salary
+select max(salary) as third_highest
+from employees 
+where salary <
+(
+select max(salary) 
+from employees
+where salary < 
+(select max(salary)
+from employees) 
+);
+
+-- 15.employees who have the same salary as at least one employee from the it department
+select * 
+from employees
+where salary in 
+(
+select salary 
+from employees 
+where department="IT"
+);
+
+-- 16.find employees whoose salary is higher than the average salary and is active.
+
+select *
+from employees
+where salary >
+(select avg(salary)
+from employees
+)
+and employment_status = "Active";
+
+-- 
+
+
