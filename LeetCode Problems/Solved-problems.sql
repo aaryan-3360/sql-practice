@@ -194,6 +194,13 @@ FROM Activities
 GROUP BY sell_date
 ORDER BY sell_date;
 
+-- 22.Second Highest Salary 
+-- leetcode.com/problems/second-highest-salary
+SELECT MAX(salary) AS SecondHighestSalary
+FROM Employee
+WHERE salary < (SELECT MAX(salary) FROM Employee);
+
+-- 23.
 -- ============================================
 -- TIPS FOR OPTIMIZATION
 -- ============================================
