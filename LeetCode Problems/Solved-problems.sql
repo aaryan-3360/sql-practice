@@ -174,6 +174,25 @@ SELECT
 FROM followers
 GROUP BY user_id;
 
+-- 20. leetcode.com/problems/list-the-products-ordered-in-a-period
+select p.product_name,sum(o.unit) as unit
+from products as p
+join orders as o
+on p.product_id = o.product_id
+where o.order_date >= "2020-02-01" and 
+o.order_date < "2020-03-01"
+group by p.product_name
+having unit >= 100
+;
+
+-- 21. Group Sold Products By The Date
+--leetcode.com/problems/group-sold-products-by-the-date
+SELECT sell_date,
+       COUNT(DISTINCT product) AS num_sold,
+       GROUP_CONCAT(DISTINCT product ORDER BY product) AS products
+FROM Activities
+GROUP BY sell_date
+ORDER BY sell_date;
 
 -- ============================================
 -- TIPS FOR OPTIMIZATION
